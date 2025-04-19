@@ -1,1 +1,161 @@
-# Smart Headphones Store Frontend\n\nA Next.js application that provides an AI-powered shopping experience for headphones, featuring product listings and an intelligent shopping assistant.\n\n## 🚀 Features\n\n- **AI Shopping Assistant**: Intelligent product recommendations based on user requirements\n- **Real-time Product Listings**: Dynamic display of products with detailed information\n- **Responsive Design**: Mobile-first approach using Tailwind CSS\n- **Server-Side Integration**: Seamless connection with Supabase backend\n- **Streaming AI Responses**: Real-time AI responses using Server-Sent Events (SSE)\n\n## 📁 Project Structure\n\n```\nfrontend/\n├── src/\n│   ├── app/                    # Next.js App Router\n│   │   ├── api/               # API Routes\n│   │   │   ├── products/      # Product API endpoints\n│   │   │   └── products-ai/   # AI Assistant endpoint\n│   │   ├── page.tsx           # Home page\n│   │   └── layout.tsx         # Root layout\n│   ├── components/            # React Components\n│   │   ├── ui/               # Shadcn UI components\n│   │   ├── ProductCard.tsx   # Product display component\n│   │   ├── ProductList.tsx   # Product grid component\n│   │   └── AssistantAI.tsx   # AI chat interface\n│   └── lib/                   # Utility functions\n```\n\n## 🧩 Key Components\n\n### ProductList\n- Displays a responsive grid of products\n- Handles loading states and error conditions\n- Fetches product data from the backend\n- Integrates with ProductCard for individual product display\n\n### ProductCard\n- Displays individual product information\n- Shows product image, name, description, and price\n- Handles stock status with visual indicators\n- Responsive image loading with Next.js Image optimization\n\n### AssistantAI\n- Provides an interactive chat interface\n- Integrates with Anthropic's Claude AI\n- Streams responses in real-time\n- Displays product recommendations with cards\n- Maintains chat history and context\n\n## 🔌 API Integration\n\n### Products API\n- `GET /api/products`: Fetches all products from Supabase\n- Returns product information including:\n  - Name, description, price\n  - Stock quantity\n  - Images\n  - Categories\n\n### AI Assistant API\n- `POST /api/products-ai`: Handles AI interactions\n- Features:\n  - Streaming responses using SSE\n  - Product-aware recommendations\n  - Structured response format\n  - Error handling and logging\n\n## 💻 Technology Stack\n\n- **Framework**: Next.js 14 with App Router\n- **Language**: TypeScript\n- **Styling**: Tailwind CSS\n- **UI Components**: shadcn/ui\n- **AI Integration**: Anthropic Claude API\n- **Database**: Supabase\n- **State Management**: React Hooks\n- **API Communication**: Server-Sent Events (SSE)\n\n## 🔧 Development\n\n### Prerequisites\n- Node.js 18+\n- npm or yarn\n- Supabase account\n- Anthropic API key\n\n### Environment Variables\n```env\nANTHROPIC_API_KEY=your_api_key\nSUPABASE_URL=your_supabase_url\nSUPABASE_KEY=your_supabase_key\nPRODUCTS_API_URL=http://localhost:3001\n```\n\n### Getting Started\n1. Install dependencies:\n   ```bash\n   npm install\n   ```\n\n2. Run the development server:\n   ```bash\n   npm run dev\n   ```\n\n3. Open [http://localhost:3000](http://localhost:3000)\n\n## 🤝 Integration Points\n\n### Supabase Integration\n- Direct connection to Supabase database\n- Real-time product data synchronization\n- Secure API key management\n\n### AI Assistant Integration\n- Anthropic Claude API for intelligent recommendations\n- Streaming response handling\n- Product-aware context management\n\n## 🎯 Features in Detail\n\n### Product Display\n- Responsive grid layout\n- Image optimization\n- Price formatting\n- Stock status indicators\n- Category labeling\n\n### AI Assistant\n- Real-time chat interface\n- Context-aware recommendations\n- Product card integration\n- Error handling\n- Loading states\n\n## 🔒 Security Considerations\n\n- Environment variable protection\n- API key security\n- Rate limiting\n- Error boundary implementation\n- Input validation\n\n## 🚀 Performance Optimizations\n\n- Image optimization with Next.js\n- Component lazy loading\n- API response caching\n- Streaming responses\n- Efficient re-rendering management\n\n## 📱 Responsive Design\n\n- Mobile-first approach\n- Breakpoint optimization\n- Flexible grid layouts\n- Adaptive UI components\n- Touch-friendly interactions
+# Smart Headphones Store Frontend
+
+A Next.js application that provides an AI-powered shopping experience for headphones, featuring product listings and an intelligent shopping assistant.
+
+## 🚀 Features
+
+- **AI Shopping Assistant**: Intelligent product recommendations based on user requirements
+- **Real-time Product Listings**: Dynamic display of products with detailed information
+- **Responsive Design**: Mobile-first approach using Tailwind CSS
+- **Server-Side Integration**: Seamless connection with Supabase backend
+- **Streaming AI Responses**: Real-time AI responses using Server-Sent Events (SSE)
+
+## 📁 Project Structure
+
+```
+frontend/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/               # API Routes
+│   │   │   ├── products/      # Product API endpoints
+│   │   │   └── products-ai/   # AI Assistant endpoint
+│   │   ├── page.tsx           # Home page
+│   │   └── layout.tsx         # Root layout
+│   ├── components/            # React Components
+│   │   ├── ui/               # Shadcn UI components
+│   │   ├── ProductCard.tsx   # Product display component
+│   │   ├── ProductList.tsx   # Product grid component
+│   │   └── AssistantAI.tsx   # AI chat interface
+│   └── lib/                   # Utility functions
+```
+
+## 🧩 Key Components
+
+### ProductList
+- Displays a responsive grid of products
+- Handles loading states and error conditions
+- Fetches product data from the backend
+- Integrates with ProductCard for individual product display
+
+### ProductCard
+- Displays individual product information
+- Shows product image, name, description, and price
+- Handles stock status with visual indicators
+- Responsive image loading with Next.js Image optimization
+
+### AssistantAI
+- Provides an interactive chat interface
+- Integrates with Anthropic's Claude AI
+- Streams responses in real-time
+- Displays product recommendations with cards
+- Maintains chat history and context
+
+## 🔌 API Integration
+
+### Products API
+- `GET /api/products`: Fetches all products from Supabase
+- Returns product information including:
+  - Name, description, price
+  - Stock quantity
+  - Images
+  - Categories
+
+### AI Assistant API
+- `POST /api/products-ai`: Handles AI interactions
+- Features:
+  - Streaming responses using SSE
+  - Product-aware recommendations
+  - Structured response format
+  - Error handling and logging
+
+## 💻 Technology Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **AI Integration**: Anthropic Claude API
+- **Database**: Supabase
+- **State Management**: React Hooks
+- **API Communication**: Server-Sent Events (SSE)
+
+## 🔧 Development
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Supabase account
+- Anthropic API key
+
+### Environment Variables
+```env
+ANTHROPIC_API_KEY=your_api_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+PRODUCTS_API_URL=http://localhost:3001
+```
+
+### Getting Started
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000)
+
+## 🤝 Integration Points
+
+### Supabase Integration
+- Direct connection to Supabase database
+- Real-time product data synchronization
+- Secure API key management
+
+### AI Assistant Integration
+- Anthropic Claude API for intelligent recommendations
+- Streaming response handling
+- Product-aware context management
+
+## 🎯 Features in Detail
+
+### Product Display
+- Responsive grid layout
+- Image optimization
+- Price formatting
+- Stock status indicators
+- Category labeling
+
+### AI Assistant
+- Real-time chat interface
+- Context-aware recommendations
+- Product card integration
+- Error handling
+- Loading states
+
+## 🔒 Security Considerations
+
+- Environment variable protection
+- API key security
+- Rate limiting
+- Error boundary implementation
+- Input validation
+
+## 🚀 Performance Optimizations
+
+- Image optimization with Next.js
+- Component lazy loading
+- API response caching
+- Streaming responses
+- Efficient re-rendering management
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoint optimization
+- Flexible grid layouts
+- Adaptive UI components
+- Touch-friendly interactions
