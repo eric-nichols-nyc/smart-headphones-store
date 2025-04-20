@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -22,7 +24,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <Card className="flex flex-col justify-between overflow-hidden">
       <div className="relative h-48 w-full">
         <Image
-          src={image_url}
+          src={`${image_url}.png`}
           alt={name}
           fill
           className="object-cover"

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { ProductCard } from './ProductCard'
 
@@ -18,7 +20,7 @@ export function ProductList() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/products')
+        const response = await fetch('https://products-api-jade.vercel.app/api/products')
         if (!response.ok) {
           throw new Error('Failed to fetch products')
         }
