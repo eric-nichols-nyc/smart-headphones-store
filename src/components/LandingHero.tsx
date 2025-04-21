@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../components/ui/button'
 import { Card } from '../components/ui/card'
+import { ShinyButton } from './ui/shiny-button'
 
 const FEATURED_HEADPHONES = [
   {
@@ -54,15 +55,15 @@ export function LandingHero() {
                 />
               </div>
             </div>
-            <Button
+            <ShinyButton
               asChild
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-lg px-8"
+              className="text-lg px-8"
             >
               <Link href="/products">
                 Get Started
               </Link>
-            </Button>
+            </ShinyButton>
           </div>
 
           <div className="relative flex justify-center items-center">

@@ -2,6 +2,8 @@
 
 A Next.js application that provides an AI-powered shopping experience for headphones, featuring product listings and an intelligent shopping assistant.
 
+![Smart Headphones Store Homepage](./screenshot.png)
+
 ## 🚀 Features
 
 - **AI Shopping Assistant**: Intelligent product recommendations based on user requirements
