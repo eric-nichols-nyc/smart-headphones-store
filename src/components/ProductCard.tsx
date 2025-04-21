@@ -1,53 +1,60 @@
 'use client'
 
-import Image from 'next/image'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image';
+import { Card } from './ui/card';
+import { Button } from './ui/button';
+import { formatPrice } from '@/lib/utils';
 
 interface Product {
-  id: string
-  name: string
-  description: string
-  price: number
-  image_url: string
-  stock_quantity: number
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image_url: string;
+  category: string;
+  sku: string;
+  stock_quantity: number;
 }
 
 interface ProductCardProps {
-  product: Product
+  product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { name, description, price, image_url, stock_quantity } = product
+  const isInStock = product.stock_quantity > 0;
 
   return (
-    <Card className="flex flex-col justify-between overflow-hidden">
-      <div className="relative h-48 w-full">
+    <Card className="bg-gray-900 border-gray-800 overflow-hidden">
+      <div className="aspect-square relative">
         <Image
-          src={`${image_url}.png`}
-          alt={name}
+          src={`${product.image_url}.png`}
+          alt={product.name}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
-      <CardHeader>
-        <CardTitle className="line-clamp-1">{name}</CardTitle>
-        <CardDescription className="line-clamp-2">{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex justify-between items-center">
-          <p className="text-2xl font-bold">${price}</p>
-          <p className={`text-sm ${stock_quantity > 0 ? 'text-green-600' : 'text-red-600'}`}>
-            {stock_quantity > 0 ? 'In Stock' : 'Out of Stock'}
-          </p>
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-2">
+          <h3 className="text-xl font-semibold text-white truncate">{product.name}</h3>
+          <span className="text-lg font-medium text-blue-400">
+            {formatPrice(product.price)}
+          </span>
         </div>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" disabled={stock_quantity === 0}>
-          Add to Cart
-        </Button>
-      </CardFooter>
+        <p className="text-gray-400 text-sm line-clamp-2 mb-4">{product.description}</p>
+        <div className="flex items-center justify-between">
+          <span className={`text-sm ${isInStock ? 'text-green-500' : 'text-red-500'}`}>
+            {isInStock ? 'In Stock' : 'Out of Stock'}
+          </span>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={!isInStock}
+          >
+            Add to Cart
+          </Button>
+        </div>
+      </div>
     </Card>
-  )
+  );
 }

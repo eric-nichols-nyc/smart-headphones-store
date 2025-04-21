@@ -28,7 +28,7 @@ export function LandingHero() {
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-center mb-24">
           <div>
-            <h1 className="text-4xl lg:text-6xl font-normal mb-6">
+            <h1 className="text-4xl lg:text-6xl font-normal mb-6 bg-gradient-to-r from-blue-400 via-blue-500 to-purple-600 text-transparent bg-clip-text">
               Discover the<br />Future of Sound
             </h1>
             <p className="text-xl text-gray-400 mb-8">

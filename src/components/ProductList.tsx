@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react'
 import { ProductCard } from './ProductCard'
 
 interface Product {
-  id: string
-  name: string
-  description: string
-  price: number
-  image_url: string
-  stock_quantity: number
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image_url: string;
+  sku: string;
+  category: string;
+  stock_quantity: number;
 }
 
 export function ProductList() {
